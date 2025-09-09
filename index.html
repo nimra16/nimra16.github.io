@@ -85,7 +85,6 @@
               </div>
             </li>
 
-
             <li class="contact-item">
               <div class="icon-box">
                 <ion-icon name="location-outline"></ion-icon>
@@ -1111,6 +1110,7 @@
           </header>
 
           <section class="projects">
+            <!-- Filter Buttons -->
             <ul class="filter-list">
               <li class="filter-item">
                 <button class="active" data-filter-btn>All</button>
@@ -1132,6 +1132,7 @@
               </li>
             </ul>
 
+            <!-- Dropdown for Mobile -->
             <div class="filter-select-box">
               <button class="filter-select" data-select>
                 <div class="select-value" data-selecct-value>
@@ -1164,23 +1165,73 @@
               </ul>
             </div>
 
+            <!-- Project List -->
             <ul class="project-list">
-              <!-- Computer Vision Projects -->
+              <!-- Project 1: Assessment Checker -->
               <li
                 class="project-item active"
                 data-filter-item
-                data-category="Computer Vision"
+                data-category="Software Development, NLP and Chatbots, Machine Learning and AI"
               >
-                <a href="https://github.com/nimra16" target="_blank">
+                <a
+                  href="https://nimra16.pythonanywhere.com/assesment_checker"
+                  target="_blank"
+                >
                   <figure class="project-img">
                     <img
-                      src="./assets/images/projects/dummy.png"
-                      alt=""
+                      src="./assets/images/projects/assessment-checker.png"
+                      alt="Assessment Checker"
                       loading="lazy"
                     />
                   </figure>
-                  <h3 class="project-title">dummy</h3>
-                  <p class="project-category">Computer Vision</p>
+                  <h3 class="project-title">Assessment Checker</h3>
+                  <p class="project-category">
+                    NLP and Chatbots, Machine Learning and AI
+                  </p>
+                </a>
+              </li>
+
+              <!-- Project 2: EduScan Assist -->
+              <li
+                class="project-item active"
+                data-filter-item
+                data-category="Software Development, Web Development, Computer Vision"
+              >
+                <a href="https://edu-scan-assist.vercel.app/" target="_blank">
+                  <figure class="project-img">
+                    <img
+                      src="./assets/images/projects/edu-scan-assist.png"
+                      alt="EduScan Assist"
+                      loading="lazy"
+                    />
+                  </figure>
+                  <h3 class="project-title">EduScan Assist</h3>
+                  <p class="project-category">
+                    Web Development, NLP and Chatbots
+                  </p>
+                </a>
+              </li>
+              <!-- Project 3: Teacher Aspect-Based Evaluation -->
+              <li
+                class="project-item active"
+                data-filter-item
+                data-category="Software Development, Machine Learning and AI, NLP and Chatbots"
+              >
+                <a
+                  href="https://teachers-aspect-based-evaluation.streamlit.app/"
+                  target="_blank"
+                >
+                  <figure class="project-img">
+                    <img
+                      src="./assets/images/projects/teacher-evaluation.png"
+                      alt="Teacher Aspect-Based Evaluation"
+                      loading="lazy"
+                    />
+                  </figure>
+                  <h3 class="project-title">Teacher Aspect-Based Evaluation</h3>
+                  <p class="project-category">
+                    Machine Learning and AI, NLP and Chatbots
+                  </p>
                 </a>
               </li>
             </ul>
@@ -1417,11 +1468,14 @@
 
             // Filter project items
             projectItems.forEach((item) => {
-              console.log("Project category:", item.dataset.category); // Debugging output
-              if (category === "All" || item.dataset.category === category) {
-                item.style.display = "block"; // Show this item
+              const categories = item.dataset.category
+                .split(",")
+                .map((c) => c.trim()); // Convert to array
+
+              if (category === "All" || categories.includes(category)) {
+                item.style.display = "block"; // Show this project
               } else {
-                item.style.display = "none"; // Hide this item
+                item.style.display = "none"; // Hide this project
               }
             });
           });
@@ -1442,5 +1496,3 @@
     ></script>
   </body>
 </html>
-
-
